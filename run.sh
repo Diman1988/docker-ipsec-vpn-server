@@ -164,7 +164,7 @@ L2TP_LOCAL=${VPN_L2TP_LOCAL:-'192.168.42.1'}
 L2TP_POOL=${VPN_L2TP_POOL:-'192.168.42.10-192.168.42.250'}
 XAUTH_NET=${VPN_XAUTH_NET:-'192.168.43.0/24'}
 XAUTH_POOL=${VPN_XAUTH_POOL:-'192.168.43.10-192.168.43.250'}
-DNS_SRV1=${VPN_DNS_SRV1:-VPN_L2TP_LOCAL}
+DNS_SRV1=${VPN_DNS_SRV1:-'192.168.42.1'}
 DNS_SRV2=${VPN_DNS_SRV2:-'8.8.4.4'}
 DNS_SRVS="\"$DNS_SRV1 $DNS_SRV2\""
 [ -n "$VPN_DNS_SRV1" ] && [ -z "$VPN_DNS_SRV2" ] && DNS_SRVS="$DNS_SRV1"
@@ -489,7 +489,7 @@ bogus-priv
 # Or which to listen on by address (remember to include 127.0.0.1 if
 # you use this.)
 listen-address=127.0.0.1
-listen-address=$VPN_L2TP_LOCAL
+listen-address=192.168.42.1
 # If you want dnsmasq to provide only DNS service on an interface,
 # configure it as shown above, and then use the following line to
 # disable DHCP and TFTP on it.
