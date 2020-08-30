@@ -51,7 +51,7 @@ RUN apt-get -yqq update \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* \
     && update-alternatives --set iptables /usr/sbin/iptables-legacy \
-    && wget https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts -O /etc/hosts
+    && wget -t 3 -T 30 -nv https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts -O /etc/hosts
 
 COPY ./run.sh /opt/src/run.sh
 RUN chmod 755 /opt/src/run.sh
